@@ -62,12 +62,13 @@ class Program {
 					Program.ans[i][j] = Math.pow(3 * Math.atan(Math.cos(X)), 2);
 				}
 				else if (Program.checkInclusion(c[i])) {
-					double ePowed = Math.pow(Math.E, (Math.pow((Math.pow(X, 1/3.0)) / 2, 2)));
+					
+					double ePowed = Math.exp(Math.pow(Math.cbrt(X) / 2, 2));
 					Program.ans[i][j] = Math.log(ePowed);
 				}
 				else {
-					double arc = Math.pow(Math.asin((X - 2.5) / 23), 1/3.0);
-
+					double arc = Math.cbrt(Math.asin((X - 2.5) / 23));
+					
 					double aPow = 1 - Math.log(Math.abs(X));
 					double bPow = Math.pow(X / (X + 0.25), 3);
 					double cPow = Math.pow(aPow / bPow, 3);
