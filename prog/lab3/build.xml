@@ -2,20 +2,13 @@
 <project name="lab3" default="run">
     <target name="compile">
         <mkdir dir="build/classes"/>
-        <javac destdir="build/classes" includeantruntime="false">
-            <src path="src/character/"/>
-        </javac>
-        <javac destdir="build/classes" includeantruntime="false">
-            <src path="src/enums/"/>
-        </javac>
-        <javac destdir="build/classes" includeantruntime="false">
-            <src path="src/interfaces/"/>
-        </javac>
-        <javac destdir="build/classes" includeantruntime="false">
-            <src path="src/objects/"/>
-        </javac>
-        <javac destdir="build/classes" includeantruntime="false">
+		<javac destdir="build/classes" includeantruntime="false">
             <src path="src/output/"/>
+            <src path="src/enums/"/>
+            <src path="src/interfaces/"/>
+			<src path="src/objects/"/>
+            <src path="src/character/"/>
+			<src path="src/"/>
         </javac>
     </target>
     <target name="package" depends="compile">

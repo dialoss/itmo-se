@@ -4,11 +4,6 @@
         <mkdir dir="build/classes"/>
         <javac destdir="build/classes" includeantruntime="false">
             <src path="src/moves"/>
-            <classpath>
-                <pathelement path="libs/Pokemon.jar"/>
-            </classpath>
-        </javac>
-        <javac destdir="build/classes" includeantruntime="false">
             <src path="src/pokemons"/>
             <classpath>
                 <pathelement path="libs/Pokemon.jar"/>
