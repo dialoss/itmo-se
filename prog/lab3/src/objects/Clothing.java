@@ -13,6 +13,6 @@ public class Clothing extends Item {
 
     @Override
     public String toString() {
-        return String.format("%s %s ", condition, type) + new Description<>(defects).describe();
+        return String.format("%s %s ", condition, type) + Description.describe(defects);
     }
 }

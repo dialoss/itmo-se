@@ -27,6 +27,7 @@ public class Main {
 
         neznaika.emote(Emotions.SAD);
         output(neznaika);
+        output(neznaika.describeDress());
 
         output("Нет, Незнайка не мог смеяться, встретившись с взглядом этих печальных глаз, да и никто бы не смог смеяться.");
     }

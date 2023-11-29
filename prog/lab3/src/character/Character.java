@@ -1,14 +1,19 @@
 package character;
 
 import enums.Emotions;
-import interfaces.IAction;
-import interfaces.IDescribable;
+import interfaces.*;
 import objects.Clothing;
 import output.Description;
 
 import java.util.Objects;
 
-public abstract class Character implements IAction, IDescribable {
+public abstract class Character implements
+        IEmotional,
+        ICanSee,
+        ITalkable,
+        IWalkable,
+        IDescribable {
+
     protected String name;
     protected Emotions[] moodState;
     protected Clothing[] clothes;
@@ -35,13 +40,13 @@ public abstract class Character implements IAction, IDescribable {
 
     @Override
     public String describeEmotions() {
-        return "У " + name + " лицо: " + new Description<>(moodState).describe();
+        return "У " + name + " " + Description.describe(moodState) + " лицо";
     }
 
     @Override
     public String describeDress() {
-        if (clothes.length > 0) {
-            return "На нём: " + new Description<>(clothes).describe();
+        if (clothes != null && clothes.length > 0) {
+            return "На нём: " + Description.describe(clothes);
         } else {
             return "У " + name + " нет одежды";
         }
