@@ -92,7 +92,9 @@ cat grotle4 | grep -E ".*sa.*" &> echo
 cd ~/opd/lab0
 
 cat $(echo i* */i*) | sort -r
-wc -l $(ls -p | grep -v /) 1> ~/tmp/result 2> ~/tmp/errors
+mkdir -p ~/opd/lab0/tmp/
+mkdir -p ~/opd/lab0/tmp/
+wc -l $(ls -p | grep -v /) 2> ~/opd/lab0/tmp/errors 1>  ~/opd/lab0/tmp/result
 
 rm ~/opd/lab0/grotle4
 rm ~/opd/lab0/jolteon9/ekans

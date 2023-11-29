@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="lab3" default="run">
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/character/"/>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/enums/"/>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/interfaces/"/>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/objects/"/>
+        </javac>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src/output/"/>
+        </javac>
+    </target>
+    <target name="package" depends="compile">
+        <jar destfile="build/lab3.jar"
+             basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+</project>
