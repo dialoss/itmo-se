@@ -4,13 +4,13 @@ public enum ItemTypes {
     HAT("шляпа"),
     PANTS("штаны"),
     DRESS("блуза"),
+    STICK("палку"),
+    PAPER("газеты"),
     SQUARES("заплатками"),
     MACHRI("махрами"),
     HOLE("дырками"),
     OLD("протёртостями"),
-    FIELDS("полями"),
-    STICK("палку"),
-    PAPER("газеты");
+    FIELDS("полями");
 
     private String type;
 

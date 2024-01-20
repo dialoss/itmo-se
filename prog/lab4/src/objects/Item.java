@@ -7,7 +7,7 @@ abstract class Item {
     ItemTypes type;
     ItemConditions condition;
 
-    Item(ItemTypes type, ItemConditions condition) {
+    public Item(ItemTypes type, ItemConditions condition) {
         this.type = type;
         this.condition = condition;
     }

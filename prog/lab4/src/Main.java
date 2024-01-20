@@ -1,5 +1,5 @@
+import character.Animal;
 import character.Incognito;
-import character.Kozlik;
 import character.Neznaika;
 import enums.Emotions;
 import enums.ItemTypes;
@@ -7,81 +7,87 @@ import exceptions.CharacterHasNoClothesException;
 import exceptions.CharacterItemNotFound;
 import output.StoryParagraph;
 
-import static output.StoryOutput.output;
-
 public class Main {
+    private static class StoryOutput<T> {
+        public static <T> void print(T text) {
+            System.out.println(text);
+        }
+    }
     public static void main(String[] args) {
 
-        StoryParagraph introduction = new StoryParagraph() {
+        StoryParagraph introduction = new StoryParagraph("introduction") {
             @Override
-            public void create() {
+            public void compose() {
+                this.heading = "вступление";
                 this.text = "Однажды Незнайка и Козлик сидели и разговаривали, как обычно";
             }
         };
-        StoryParagraph climax = new StoryParagraph() {
+        StoryParagraph climax = new StoryParagraph("climax") {
             @Override
-            public void create() {
+            public void compose() {
+                this.heading = "кульминация";
                 this.text = "Нет, Незнайка не мог смеяться, встретившись с взглядом этих печальных глаз," +
                         " да и никто бы не смог смеяться.";
             }
         };
-        StoryParagraph ending = new StoryParagraph() {
+        StoryParagraph ending = new StoryParagraph("ending") {
             @Override
-            public void create() {
+            public void compose() {
+                this.heading = "конец";
                 this.text = "Таких историй Козлик рассказывал множество. " +
                         "Жизнь его была богата разными приключениями. " +
                         "Незнайка с интересом слушал его, и ему не приходилось скучать.";
             }
         };
 
-        introduction.create();
-        climax.create();
-        ending.create();
+        introduction.compose();
+        climax.compose();
+        ending.compose();
 
         Neznaika neznaika = new Neznaika("Незнайка");
-        Kozlik kozlik = new Kozlik("Козлик");
+        Animal kozlik = new Animal("Козлик");
         Incognito incognito = new Incognito("Незнакомый коротышка");
 
-        output(introduction);
-        output(neznaika.talk("Привет"));
-        output(kozlik.talk("Как дела"));
+        StoryOutput.print(introduction);
+        StoryOutput.print(neznaika.talk("Привет"));
+        StoryOutput.print(kozlik.talk("Как дела"));
 
-        output(incognito.walk());
-        output(neznaika.lookAt(incognito, "наряд"));
+        StoryOutput.print(incognito.walk());
+        StoryOutput.print(neznaika.lookAt(incognito, "наряд"));
 
         try {
-            output(incognito.describeDress());
+            StoryOutput.print(incognito.describeDress());
         } catch (CharacterHasNoClothesException e) {
             System.out.println(e);
         }
         neznaika.emote(Emotions.SMILE);
-        output(neznaika);
+        StoryOutput.print(neznaika);
 
-        output(neznaika.lookAt(incognito, "лицо"));
-        output(incognito.describeEmotions());
+        StoryOutput.print(neznaika.lookAt(incognito, "лицо"));
+        StoryOutput.print(incognito.describeEmotions());
 
         neznaika.emote(Emotions.SAD);
-        output(neznaika);
+        StoryOutput.print(neznaika);
         try {
-            output(neznaika.describeDress());
+            StoryOutput.print(neznaika.describeDress());
         } catch (CharacterHasNoClothesException e) {
             System.out.println(e);
         }
 
-        output(climax);
+        StoryOutput.print(climax);
 
-        output(incognito.greeting(neznaika));
-        output(incognito.greeting(kozlik));
+        StoryOutput.print(incognito.greeting(neznaika));
+        StoryOutput.print(incognito.greeting(kozlik));
         try {
-            output(incognito.itemAction("поставил в угол", ItemTypes.STICK));
-            output(incognito.itemAction("достал из кармана", ItemTypes.PAPER));
+            StoryOutput.print(incognito.itemAction("поставил в угол", ItemTypes.STICK));
+            StoryOutput.print(incognito.itemAction("достал из кармана", ItemTypes.PAPER));
         } catch (CharacterItemNotFound e) {
             System.out.println(e);
         }
-        output(incognito.ask("Это у вас?"));
-        output(neznaika.lookAt(incognito, "газету"));
-        output(neznaika.talk("У нас"));
+        StoryOutput.print(incognito.ask("Это у вас?"));
+        StoryOutput.print(neznaika.lookAt(incognito, "газету"));
+        StoryOutput.print(neznaika.talk("У нас"));
 
-        output(ending);
+        StoryOutput.print(ending);
     }
 }

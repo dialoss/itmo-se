@@ -29,7 +29,7 @@ public abstract class HumanCharacter extends Character implements
 
     @Override
     public String walk() {
-        return name + " пришёл";
+        return name + " РїСЂРёС€С‘Р»";
     }
 
     @Override
@@ -45,7 +45,7 @@ public abstract class HumanCharacter extends Character implements
 
             @Override
             public String toString() {
-                return getName() + " посмотрел на " + place + " " + character.getName();
+                return getName() + " РїРѕСЃРјРѕС‚СЂРµР» РЅР° " + place + " " + character.getName();
             }
         }
         return new SpecialSentence(character, place).toString();
@@ -58,7 +58,7 @@ public abstract class HumanCharacter extends Character implements
 
     @Override
     public String describeEmotions() {
-        return "У " + name + " " + Description.describe(moodState) + " лицо";
+        return "РЈ " + name + " " + Description.describe(moodState) + " Р»РёС†Рѕ";
     }
 
     @Override
@@ -69,9 +69,9 @@ public abstract class HumanCharacter extends Character implements
     @Override
     public String describeDress() throws CharacterHasNoClothesException {
         if (clothes != null && clothes.length > 0) {
-            return "На нём: " + Description.describe(clothes);
+            return "РќР° РЅС‘Рј: " + Description.describe(clothes);
         } else {
-            throw new CharacterHasNoClothesException("У " + name + " нет одежды!");
+            throw new CharacterHasNoClothesException("РЈ " + name + " РЅРµС‚ РѕРґРµР¶РґС‹!");
         }
     }
 }

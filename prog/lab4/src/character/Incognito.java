@@ -7,7 +7,6 @@ import exceptions.CharacterHasNoClothesException;
 import exceptions.CharacterItemNotFound;
 import interfaces.IHaveItems;
 import objects.Clothing;
-import objects.Defect;
 import objects.SecondaryItem;
 import output.Description;
 
@@ -16,22 +15,9 @@ public class Incognito extends HumanCharacter implements IHaveItems {
     public Incognito(String name) {
         super(name);
 
-        Defect[] dressDefects = new Defect[]{
-                new Defect(ItemTypes.OLD, ItemConditions.WHITE, "на локтях"),
-        };
-        Clothing dress = new Clothing(ItemTypes.DRESS, ItemConditions.OLD, dressDefects);
-
-        Defect[] pantsDefects = new Defect[]{
-                new Defect(ItemTypes.MACHRI, ItemConditions.DEFAULT, "внизу"),
-                new Defect(ItemTypes.SQUARES, ItemConditions.BLACK, "на коленках"),
-        };
-        Clothing pants = new Clothing(ItemTypes.PANTS, ItemConditions.DIRT, pantsDefects);
-
-        Defect[] hatDefects = new Defect[]{
-                new Defect(ItemTypes.HOLE, ItemConditions.DEFAULT, "на самом видном месте"),
-                new Defect(ItemTypes.FIELDS, ItemConditions.DAMAGED, "по краям"),
-        };
-        Clothing hat = new Clothing(ItemTypes.HAT, ItemConditions.OLD, hatDefects);
+        Clothing dress = new Clothing(ItemTypes.DRESS, ItemConditions.OLD);
+        Clothing pants = new Clothing(ItemTypes.PANTS, ItemConditions.DIRT);
+        Clothing hat = new Clothing(ItemTypes.HAT, ItemConditions.OLD);
 
         clothes = new Clothing[]{dress, pants, hat};
 
